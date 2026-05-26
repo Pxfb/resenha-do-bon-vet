@@ -1,16 +1,17 @@
-package vet;
+package main;
 
 public class Cachorro {
 	String nome;
 	String raca;
 	int idade;
 	boolean faminto = true;
+	Cliente dono; 
 
 	public void comer() {
 		if (faminto == true) {
 			System.out.println("O " + nome + " comeu!");
 		} else {
-			System.out.println(nome + "jï¿½ estï¿½ satisfeito.");
+			System.out.println(nome + " está satisfeito.");
 		}
 	}
 
@@ -19,7 +20,11 @@ public class Cachorro {
 	}
 	
 	public void exibirDados() {
-		System.out.println("Dados do cachorro:\n Nome:" + nome + "\nRaï¿½a: " + raca + "\nIdade: " + idade + " anos"); 
+		if(dono !=null) {
+			dono.exibirInfo();
+		}
+		
+		System.out.println("Dados do cachorro:\n Nome: " + nome + "\nRaça: " + raca + "\nIdade: " + idade + " anos"); 
 	}
 
 }
