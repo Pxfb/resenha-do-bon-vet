@@ -10,7 +10,7 @@ public class Cachorro {
 		if (faminto == true) {
 			System.out.println("O " + nome + " comeu!");
 		} else {
-			System.out.println(nome + "já está satisfeito.");
+			System.out.println(nome + "jï¿½ estï¿½ satisfeito.");
 		}
 	}
 
@@ -19,7 +19,7 @@ public class Cachorro {
 	}
 	
 	public void exibirDados() {
-		System.out.println("Dados do cachorro:\n Nome:" + nome + "\nRaça: " + raca + "\nIdade: " + idade + " anos"); 
+		System.out.println("Dados do cachorro:\n Nome:" + nome + "\nRaï¿½a: " + raca + "\nIdade: " + idade + " anos"); 
 	}
 
 }
