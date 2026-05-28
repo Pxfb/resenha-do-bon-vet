@@ -4,27 +4,34 @@ public class Cachorro {
 	String nome;
 	String raca;
 	int idade;
+	char genero;
 	boolean faminto = true;
 	Cliente dono; 
 
 	public void comer() {
 		if (faminto == true) {
+			if (genero == 'F') {
+				System.out.println("A " + nome + " comeu!");
+			} else {
 			System.out.println("O " + nome + " comeu!");
-		} else {
-			System.out.println(nome + " est· satisfeito.");
+		} } else {
+			System.out.println(nome + " est√° satisfeito.");
 		}
 	}
 
 	public void latir() {
+		if (genero == 'F') {
+			System.out.println("A " + raca + " chamada " + nome + " diz \"AU AU!\"");
+		} else {
 		System.out.println("O " + raca + " chamado " + nome + " diz \"AU AU!\"");
-	}
+	} } 
 	
 	public void exibirDados() {
 		if(dono !=null) {
 			dono.exibirInfo();
 		}
 		
-		System.out.println("Dados do cachorro:\n Nome: " + nome + "\nRaÁa: " + raca + "\nIdade: " + idade + " anos"); 
+		System.out.println("Dados do cachorro:\n Nome: " + nome + "\nRa√ßa: " + raca + "\nIdade: " + idade + " anos"); 
 	}
 
 }

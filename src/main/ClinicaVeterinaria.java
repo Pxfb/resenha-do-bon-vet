@@ -13,14 +13,19 @@ public class ClinicaVeterinaria {
 		Lili.nome = "Lili";
 		Lili.raca = "SRD";
 		Lili.idade = 13;
+		Lili.genero = 'F';
 		Lili.faminto = true;
+		Lili.dono = Yasmin;
+		
 
 		
 		
 		Amora.nome = "Amora";
 		Amora.raca = "SRD"; 
 		Amora.idade = 11;
+		Amora.genero = 'F';
 		Amora.faminto = false;
+		Amora.dono = Yasmin;
 	
 		
 		Lili.exibirDados(); 

@@ -11,7 +11,7 @@ public class Cliente {
 	
 	public void setNome(String nome) {
 		if(nome == ""  || nome == null) {
-			System.out.println("Por favor, digite um nome v·lido.");
+			System.out.println("Por favor, digite um nome v√°lido.");
 		}	else {
 			this.nome = nome;
 		}
