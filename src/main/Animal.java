@@ -1,0 +1,98 @@
+package main;
+
+public class Animal {
+
+	protected String nome;
+	protected int idade = 0;
+	protected char genero;
+	protected boolean faminto = true;
+
+	protected static int totalAnimais = 0;
+	protected Cliente dono;
+
+	Animal(String nome, int idade, char genero) {
+		if (idade < 0) {
+			System.out.println("Por favor, digite uma idade válida para o animal.");
+		} else {
+			this.idade = idade;
+		}
+		this.nome = nome;
+		this.genero = genero;
+		totalAnimais++;
+
+	};
+	
+	
+	// Os getters e setters do bonetti etti
+
+	// nome
+	public void setNome(String nome) {
+		if (nome == "" || nome == null) {
+			System.out.println("Por favor, digite um nome válido.");
+		} else {
+			this.nome = nome;
+		}
+	}
+
+	public String getNome() {
+		return this.nome;
+	}
+
+	// idade
+	public void setIdade(int idade) {
+		if (idade < 0) {
+			System.out.println("Por favor, digite uma idade válida.");
+		} else {
+			this.idade = idade;
+		}
+	}
+
+	public int getIdade() {
+		return this.idade;
+	}
+
+	// gêneros dos animais
+	public void setGenero(char genero) {
+		if (genero == ' ') {
+			System.out.println("Por favor, digite F para fêmea e M para macho.");
+		} else {
+			this.genero = genero;
+		}
+	}
+
+	public char getGenero() {
+		return this.genero;
+	}
+
+	// faminto
+
+	public boolean getFaminto() {
+		return this.faminto;
+	}
+
+	// dono
+	public void setDono(Cliente dono) {
+		this.dono = dono;
+	}
+
+	// metodinhos dos animaiszinhos
+	public void emitirSom() {
+		System.out.println("O Animal emitiu um som!");
+	}
+
+	// get total animaizes
+	public static int gettotalAnimais() {
+		return totalAnimais;
+	}
+	
+// autoexplicativo 
+	public void exibirDados() {
+		if (dono != null) {
+			dono.exibirInfo();
+		}
+
+		System.out.println(
+				"Dados do Animal:==========\n Nome: " + nome + "\nGênero: " + genero + "\nIdade: " + idade + " anos");
+	}
+
+}

@@ -32,6 +32,6 @@ public class Cliente {
 	
 	
 	public void exibirInfo() {
-		System.out.println("Dados do dono: \n Nome: " + nome + "\n Telefone: " + telefone);
+		System.out.println("Dados do dono:==========\n Nome: " + nome + "\n Telefone: " + telefone);
 	}
 }
