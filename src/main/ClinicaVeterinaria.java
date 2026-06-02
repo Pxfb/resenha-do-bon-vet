@@ -2,37 +2,29 @@ package main;
 
 public class ClinicaVeterinaria {
 	public static void main (String [] args) {
-		
-		Cachorro Lili = new Cachorro();
-		Cachorro Amora = new Cachorro();
-		
-		Cliente Yasmin = new Cliente("Yasmin", "000000000000");
-		Yasmin.exibirInfo(); 
-		
-		
-		Lili.nome = "Lili";
-		Lili.raca = "SRD";
-		Lili.idade = 13;
-		Lili.genero = 'F';
-		Lili.faminto = true;
-		Lili.dono = Yasmin;
-		
 
+		Cliente Yasmin = new Cliente("Yasmin", "000000000000");
+		Cliente Jotape = new Cliente("João Pedro", "676767676767");
 		
+		Cachorro Lili = new Cachorro("Lili", "SRD", 13, 'F');
+		Cachorro Amora = new Cachorro("Amora", "SRD", 11, 'F');
+		Cachorro Mitski = new Cachorro("Mitski", "Pastor Alemão", -3, 'F');
 		
-		Amora.nome = "Amora";
-		Amora.raca = "SRD"; 
-		Amora.idade = 11;
-		Amora.genero = 'F';
-		Amora.faminto = false;
-		Amora.dono = Yasmin;
-	
+		Lili.setDono(Yasmin); 
+		Amora.setDono(Yasmin);
+		Mitski.setDono(Jotape);
 		
-		Lili.exibirDados(); 
+		Yasmin.exibirInfo();
+		Jotape.exibirInfo();
+		Lili.exibirDados();
 		Amora.exibirDados();
+		Mitski.exibirDados();
 		
 		Lili.comer();
 		Amora.latir();
+		Mitski.latir();
+		
+		System.out.println("Total de cães na clínica: " + Cachorro.gettotalCachorros());
 		
 	}
 }
