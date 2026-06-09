@@ -1,6 +1,6 @@
 package main;
 
-public class Cachorro extends Animal {
+public class Cachorro extends Animal implements AtendivelNoEstetica {
 
 	private String raca;
 	private static int totalCachorros = 0;
@@ -55,4 +55,22 @@ public class Cachorro extends Animal {
 			System.out.println("O " + nome + " disse \"AU AU!\"");
 		}
 	}
+	
+	@Override
+public void darBanho() {
+		if (genero == 'F') {
+			System.out.println("A " + nome + " tomou banho!");
+		} else {
+	System.out.println("O " + nome + " tomou banho!");
+		}
+};
+
+public void cortarUnhas(){
+	if (genero == 'F') {
+		System.out.println("A " + nome + " cortou as unhas!");
+	} else {
+System.out.println("O " + nome + " cortou as unhas!");
+	}
+};
+
 }

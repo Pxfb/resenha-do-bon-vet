@@ -1,6 +1,6 @@
 package main;
 
-public class Animal {
+public abstract class Animal {
 
 	protected String nome;
 	protected int idade = 0;
@@ -75,12 +75,10 @@ public class Animal {
 		this.dono = dono;
 	}
 
-	// metodinhos dos animaiszinhos
-	public void emitirSom() {
-		System.out.println("O Animal emitiu um som!");
-	}
+	// metodinhos dos animaiszinhos==========================================================================
+	public abstract void emitirSom();
 
-	// get total animaizes
+	// get total animaizes==========================================================================
 	public static int gettotalAnimais() {
 		return totalAnimais;
 	}

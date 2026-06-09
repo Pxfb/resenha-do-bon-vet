@@ -11,6 +11,8 @@ public class ClinicaVeterinaria {
 			filaAtendimento[i].emitirSom();  
 		}
 		
+		AtendivelNoEstetica[] filaEstetica = new AtendivelNoEstetica[1]; 
+		
 		
 		Cliente Yasmin = new Cliente("Yasmin", "000000000000");
 		Cliente Jotape = new Cliente("João Pedro", "676767676767");
@@ -29,6 +31,14 @@ public class ClinicaVeterinaria {
 		Amora.exibirDados();
 		Mitski.exibirDados();
 		Caty.exibirDados();
+		
+		filaEstetica [0] = Lili; 
+		for (int i = 0; i < 1; i++) {
+			filaEstetica[i].darBanho();
+			filaEstetica[i].cortarUnhas();
+		}
+		
+		
 		
 		Lili.comer();
 		Amora.emitirSom();
