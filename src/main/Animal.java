@@ -84,13 +84,12 @@ public abstract class Animal {
 	}
 	
 // autoexplicativo 
-	public void exibirDados() {
+	public String exibirDados() {
 		if (dono != null) {
 			dono.exibirInfo();
 		}
 
-		System.out.println(
-				"Dados do Animal:==========\n Nome: " + nome + "\nGênero: " + genero + "\nIdade: " + idade + " anos");
+		System.out.println("Dados do Animal:==========\n Nome: " + nome + "\nGênero: " + genero + "\nIdade: " + idade + " anos");
+		return "Dados do Animal:==========\n Nome: " + nome + "\nGênero: " + genero + "\nIdade: " + idade + " anos";
 	}
-
 }
