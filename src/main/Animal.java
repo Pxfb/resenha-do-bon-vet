@@ -28,7 +28,7 @@ public abstract class Animal {
 	// nome
 	public void setNome(String nome) {
 		if (nome == "" || nome == null) {
-			System.out.println("Por favor, digite um nome v√°lido.");
+			System.out.println("Por favor, digite um nome v·lido.");
 		} else {
 			this.nome = nome;
 		}
@@ -41,7 +41,7 @@ public abstract class Animal {
 	// idade
 	public void setIdade(int idade) {
 		if (idade < 0) {
-			System.out.println("Por favor, digite uma idade v√°lida.");
+			System.out.println("Por favor, digite uma idade v·lida.");
 		} else {
 			this.idade = idade;
 		}
@@ -54,7 +54,7 @@ public abstract class Animal {
 	// g√™neros dos animais
 	public void setGenero(char genero) {
 		if (genero == ' ') {
-			System.out.println("Por favor, digite F para f√™mea e M para macho.");
+			System.out.println("Por favor, digite F para fÍmea e M para macho.");
 		} else {
 			this.genero = genero;
 		}
@@ -92,7 +92,7 @@ public abstract class Animal {
 			dono.exibirInfo();
 		}
 
-		System.out.println("Dados do Animal:==========\n Nome: " + nome + "\nG√™nero: " + genero + "\nIdade: " + idade + " anos");
-		return "Dados do Animal:==========\n Nome: " + nome + "\nG√™nero: " + genero + "\nIdade: " + idade + " anos";
+		System.out.println("Dados do Animal:==========\n Nome: " + nome + "\nGÍnero: " + genero + "\nIdade: " + idade + " anos");
+		return "Dados do Animal:==========\n Nome: " + nome + "\nGÍnero: " + genero + "\nIdade: " + idade + " anos";
 	}
 }

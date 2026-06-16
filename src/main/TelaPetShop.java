@@ -9,27 +9,33 @@ public class TelaPetShop extends JFrame {
 
 	private final PetShopRepositorio repositorio = new PetShopRepositorio();
 
-	// ── Campos do formulário ───────────────────────────────
+	// â”€â”€ Campos do formulÃ¡rio
+	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private final JTextField campNome = new JTextField(10);
 	private final JTextField campRaca = new JTextField(10);
 	private final JTextField campIdade = new JTextField(10);
 	private final JTextField campGenero = new JTextField(10);
+	private final JTextField campDono = new JTextField(10);
+	private final JTextField campTel = new JTextField(10);
 
-	// ── Área de resultado ──────────────────────────────────
+	// â”€â”€ Ã�rea de resultado
+	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private final JTextArea areaResultado = new JTextArea(12, 50);
 
-	// ── Botões ─────────────────────────────────────────────
+	// â”€â”€ BotÃµes
+	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private final JButton btnCadastrar = new JButton("Cadastrar");
 	private final JButton btnBuscar = new JButton("Buscar");
 	private final JButton btnAtualizar = new JButton("Atualizar");
 	private final JButton btnRemover = new JButton("Remover");
 
-	// ── Construtor ─────────────────────────────────────────
+	// â”€â”€ Construtor
+	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	public TelaPetShop() {
-		super("Pet Shop — Gerenciador de Animais");
+		super("Pet Shop 0,” Gerenciador de Animais");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		// O JFrame usa BorderLayout por padrão
+		// O JFrame usa BorderLayout por padrÃ£o
 		setLayout(new BorderLayout(8, 8));
 
 		add(criarPainelFormulario(), BorderLayout.NORTH);
@@ -45,7 +51,8 @@ public class TelaPetShop extends JFrame {
 		setVisible(true);
 	}
 
-	// ── Painel Norte: formulário ───────────────────────────
+	// â”€â”€ Painel Norte: formulÃ¡rio
+	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private JPanel criarPainelFormulario() {
 		JPanel painel = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 6));
 		painel.setBorder(BorderFactory.createTitledBorder("Dados do Pet e Tutor"));
@@ -58,11 +65,16 @@ public class TelaPetShop extends JFrame {
 		painel.add(campIdade);
 		painel.add(new JLabel("Gênero:"));
 		painel.add(campGenero);
+		painel.add(new JLabel("Dono:"));
+		painel.add(campDono);
+		painel.add(new JLabel("Telefone:"));
+		painel.add(campTel);
 
 		return painel;
 	}
 
-	// ── Centro: área de texto com scroll ──────────────────
+	// â”€â”€ Centro: Ã¡rea de texto com scroll
+	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private JScrollPane criarAreaResultado() {
 		areaResultado.setEditable(false);
 		areaResultado.setFont(new Font("Monospaced", Font.PLAIN, 13));
@@ -72,7 +84,8 @@ public class TelaPetShop extends JFrame {
 		return new JScrollPane(areaResultado);
 	}
 
-	// ── Painel Sul: botões ─────────────────────────────────
+	// â”€â”€ Painel Sul: botÃµes
+	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private JPanel criarPainelBotoes() {
 		JPanel painel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 8));
 		painel.add(btnCadastrar);
@@ -82,7 +95,8 @@ public class TelaPetShop extends JFrame {
 		return painel;
 	}
 
-	// ── ActionListeners ────────────────────────────────────
+	// â”€â”€ ActionListeners
+	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private void configurarListeners() {
 
 		// ---- CADASTRAR ----
@@ -90,17 +104,38 @@ public class TelaPetShop extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String nome = campNome.getText().trim();
 				String raca = campRaca.getText().trim();
-				Integer idade = Integer.parseInt(campIdade.getText());
+				int idade;
 				char genero = campGenero.getText().charAt(0);
+				String dononome = campDono.getText().trim();
+				String telefone = campTel.getText().trim();
+
+				try {
+					idade = Integer.parseInt(campIdade.getText());
+
+				} catch (NumberFormatException erro) {
+					exibirTexto("Por favor, digite caracteres válidos.");
+					return;
+				}
 
 				if (nome.isEmpty()) {
 					exibirTexto("ERRO: O campo Nome é obrigatório.");
 					return;
 				}
-				if (raca.isEmpty())
+				if (raca.isEmpty()) {
 					raca = "Indefinida";
+				}
 
+				if (dononome.isEmpty()) {
+					exibirTexto("Por favor preencha todos os campos");
+				}
+
+				if (telefone.isEmpty()) {
+					exibirTexto("Por favor preencha todos os campos");
+				}
+
+				Cliente dono = new Cliente(dononome, telefone);
 				Cachorro novo = new Cachorro(nome, raca, idade, genero);
+				novo.setDono(dono);
 
 				repositorio.adicionar(novo);
 				exibirTexto("Pet cadastrado com sucesso!\n\n");
@@ -118,21 +153,25 @@ public class TelaPetShop extends JFrame {
 					exibirTexto("ERRO: O campo Nome é obrigatório.");
 					return;
 				}
-				repositorio.buscarPorNome(nome);
-
+				if (repositorio.buscarPorNome(nome) != null) {
+					exibirTexto(repositorio.buscarPorNome(nome).exibirDados());
+				} else {
+					exibirTexto("ERRO: Animal não encontrado.");
+				}
 			}
 
 		});
 	}
 
-	// ── Métodos auxiliares ─────────────────────────────────
+	// â”€â”€ MÃ©todos auxiliares
+	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-	/** Exibe texto na área de resultado, substituindo o conteúdo anterior. */
+	/** Exibe texto na Ã¡rea de resultado, substituindo o conteÃºdo anterior. */
 	private void exibirTexto(String texto) {
 		areaResultado.setText(texto);
 	}
 
-	/** Limpa todos os campos do formulário. */
+	/** Limpa todos os campos do formulÃ¡rio. */
 	private void limparCampos() {
 		campNome.setText("");
 		campRaca.setText("");

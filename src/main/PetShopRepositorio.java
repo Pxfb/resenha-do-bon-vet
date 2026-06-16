@@ -7,7 +7,7 @@ public class PetShopRepositorio {
 
 	private final ArrayList<Animal> animais = new ArrayList<>();
 
-	/** Adiciona um animal √† lista. */
+	/** Adiciona um animal na lista. */
 	public void adicionar(Animal a) {
 		animais.add(a);
 	}
@@ -18,14 +18,21 @@ public class PetShopRepositorio {
 	 * @return o Animal encontrado, ou null se n√£o existir.
 	 */
 	public Animal buscarPorNome(String nome) {
-		for (int n = 0; n <= animais.size(); n++) {
-			if (nome == animais.get(n).getNome()) {
-				System.out.println("Animal encontrado:" + animais.get(n).exibirDados());
+		int tamanho = animais.size();
+		if (animais.size() == 0) {
+			System.out.println("N„o existem animais.");
+			return null;
+		}
+		for (int n = 0; n <= tamanho-1; n++) {
+			Animal animal = animais.get(n);
+			if (nome.equals(animal.getNome())) {
+				System.out.println("Animal encontrado: " + animais.get(n).exibirDados());
 				return animais.get(n);
 			}
 
 		}
-		System.out.println("Animal n√£o encontrado.");
+		System.out.println(animais.get(0).getNome());
+		System.out.println("Animal n„o encontrado.");
 		return null;
 	}
 
