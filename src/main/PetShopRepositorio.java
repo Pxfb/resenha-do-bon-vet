@@ -18,8 +18,15 @@ public class PetShopRepositorio {
 	 * @return o Animal encontrado, ou null se não existir.
 	 */
 	public Animal buscarPorNome(String nome) {
-		
-		return null; 
+		for (int n = 0; n <= animais.size(); n++) {
+			if (nome == animais.get(n).getNome()) {
+				System.out.println("Animal encontrado:" + animais.get(n).exibirDados());
+				return animais.get(n);
+			}
+
+		}
+		System.out.println("Animal não encontrado.");
+		return null;
 	}
 
 	/**

@@ -14,7 +14,7 @@ public class TelaPetShop extends JFrame {
 	private final JTextField campRaca = new JTextField(10);
 	private final JTextField campIdade = new JTextField(10);
 	private final JTextField campGenero = new JTextField(10);
-	
+
 	// ── Área de resultado ──────────────────────────────────
 	private final JTextArea areaResultado = new JTextArea(12, 50);
 
@@ -55,7 +55,7 @@ public class TelaPetShop extends JFrame {
 		painel.add(new JLabel("Raça:"));
 		painel.add(campRaca);
 		painel.add(new JLabel("Idade:"));
-		painel.add(campIdade); 
+		painel.add(campIdade);
 		painel.add(new JLabel("Gênero:"));
 		painel.add(campGenero);
 
@@ -81,7 +81,6 @@ public class TelaPetShop extends JFrame {
 		painel.add(btnRemover);
 		return painel;
 	}
-	
 
 	// ── ActionListeners ────────────────────────────────────
 	private void configurarListeners() {
@@ -91,6 +90,8 @@ public class TelaPetShop extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String nome = campNome.getText().trim();
 				String raca = campRaca.getText().trim();
+				Integer idade = Integer.parseInt(campIdade.getText());
+				char genero = campGenero.getText().charAt(0);
 
 				if (nome.isEmpty()) {
 					exibirTexto("ERRO: O campo Nome é obrigatório.");
@@ -98,24 +99,31 @@ public class TelaPetShop extends JFrame {
 				}
 				if (raca.isEmpty())
 					raca = "Indefinida";
-int idade = 0; 
-				char genero = 'F'; 
 
 				Cachorro novo = new Cachorro(nome, raca, idade, genero);
 
 				repositorio.adicionar(novo);
-				exibirTexto("Pet cadastrado com sucesso!\n\n" );
+				exibirTexto("Pet cadastrado com sucesso!\n\n");
 				exibirTexto(novo.exibirDados());
 				limparCampos();
 			}
 		});
 
-	}
+		// Buscar
+		btnBuscar.addActionListener(new ActionListener() {
 
-		
-		
-		
-		
+			public void actionPerformed(ActionEvent e) {
+				String nome = campNome.getText().trim();
+				if (nome.isEmpty()) {
+					exibirTexto("ERRO: O campo Nome é obrigatório.");
+					return;
+				}
+				repositorio.buscarPorNome(nome);
+
+			}
+
+		});
+	}
 
 	// ── Métodos auxiliares ─────────────────────────────────
 
@@ -128,6 +136,8 @@ int idade = 0;
 	private void limparCampos() {
 		campNome.setText("");
 		campRaca.setText("");
+		campIdade.setText("");
+		campGenero.setText("");
 		campNome.requestFocus();
 	}
 

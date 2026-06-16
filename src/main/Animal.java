@@ -77,6 +77,9 @@ public abstract class Animal {
 
 	// metodinhos dos animaiszinhos==========================================================================
 	public abstract void emitirSom();
+	
+	
+	
 
 	// get total animaizes==========================================================================
 	public static int gettotalAnimais() {
