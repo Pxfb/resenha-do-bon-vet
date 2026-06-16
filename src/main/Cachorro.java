@@ -7,6 +7,7 @@ public class Cachorro extends Animal implements AtendivelNoEstetica {
 
 	Cachorro(String nome, String raca, int idade, char genero) {
 		super(nome, idade, genero);
+		this.raca = raca;
 		totalCachorros++;
 	};
 
@@ -55,22 +56,22 @@ public class Cachorro extends Animal implements AtendivelNoEstetica {
 			System.out.println("O " + nome + " disse \"AU AU!\"");
 		}
 	}
-	
+
 	@Override
-public void darBanho() {
+	public void darBanho() {
 		if (genero == 'F') {
 			System.out.println("A " + nome + " tomou banho!");
 		} else {
-	System.out.println("O " + nome + " tomou banho!");
+			System.out.println("O " + nome + " tomou banho!");
 		}
-};
+	};
 
-public void cortarUnhas(){
-	if (genero == 'F') {
-		System.out.println("A " + nome + " cortou as unhas!");
-	} else {
-System.out.println("O " + nome + " cortou as unhas!");
-	}
-};
+	public void cortarUnhas() {
+		if (genero == 'F') {
+			System.out.println("A " + nome + " cortou as unhas!");
+		} else {
+			System.out.println("O " + nome + " cortou as unhas!");
+		}
+	};
 
 }

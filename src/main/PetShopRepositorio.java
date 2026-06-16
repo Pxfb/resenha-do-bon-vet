@@ -20,7 +20,7 @@ public class PetShopRepositorio {
 	public Animal buscarPorNome(String nome) {
 		int tamanho = animais.size();
 		if (animais.size() == 0) {
-			System.out.println("N�o existem animais.");
+			System.out.println("Não existem animais.");
 			return null;
 		}
 		for (int n = 0; n <= tamanho-1; n++) {
@@ -31,8 +31,7 @@ public class PetShopRepositorio {
 			}
 
 		}
-		System.out.println(animais.get(0).getNome());
-		System.out.println("Animal n�o encontrado.");
+		System.out.println("Animal não encontrado.");
 		return null;
 	}
 
@@ -42,7 +41,20 @@ public class PetShopRepositorio {
 	 * @return true se encontrou e removeu, false caso contrário.
 	 */
 	public boolean remover(String nome) {
-		return true;
+		if (animais.size() == 0) {
+			System.out.println("Não existem animais.");
+			return false;
+		} 
+		for (int n = 0; n <= animais.size()-1; n++) {
+			if (nome.equals(animais.get(n).nome)) {
+				animais.remove(n); 
+				System.out.println("Animal removido com sucesso.");
+				return true;
+			}
+			
+		}
+		
+			return false;
 	}
 
 	/** Retorna a lista completa de animais cadastrados (cópia defensiva). */

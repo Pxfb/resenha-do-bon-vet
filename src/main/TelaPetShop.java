@@ -9,7 +9,7 @@ public class TelaPetShop extends JFrame {
 
 	private final PetShopRepositorio repositorio = new PetShopRepositorio();
 
-	// â”€â”€ Campos do formulÃ¡rio
+	// â”€â”€ Campos do formulário
 	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private final JTextField campNome = new JTextField(10);
 	private final JTextField campRaca = new JTextField(10);
@@ -18,11 +18,11 @@ public class TelaPetShop extends JFrame {
 	private final JTextField campDono = new JTextField(10);
 	private final JTextField campTel = new JTextField(10);
 
-	// â”€â”€ Ã�rea de resultado
+	// â”€â”€ Área de resultado
 	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private final JTextArea areaResultado = new JTextArea(12, 50);
 
-	// â”€â”€ BotÃµes
+	// â”€â”€ Botões
 	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private final JButton btnCadastrar = new JButton("Cadastrar");
 	private final JButton btnBuscar = new JButton("Buscar");
@@ -51,7 +51,7 @@ public class TelaPetShop extends JFrame {
 		setVisible(true);
 	}
 
-	// â”€â”€ Painel Norte: formulÃ¡rio
+	// â”€â”€ Painel Norte: formulário
 	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private JPanel criarPainelFormulario() {
 		JPanel painel = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 6));
@@ -161,12 +161,70 @@ public class TelaPetShop extends JFrame {
 			}
 
 		});
+		
+		// Atualizar
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nome = campNome.getText().trim();
+				String dono = campDono.getText().trim();
+				String raca = campRaca.getText().trim();
+				int idade;
+				
+				try {
+					idade = Integer.parseInt(campIdade.getText());
+
+				} catch (NumberFormatException erro) {
+					exibirTexto("Por favor, digite caracteres válidos.");
+					return;
+				}
+				
+				
+				
+				if (nome.isEmpty()) {
+					exibirTexto("ERRO: O campo Nome é obrigatório.");
+					return;
+				} 
+
+				if (dono.isEmpty()) {
+					exibirTexto("ERRO: O campo Dono é obrigatório.");
+					return;
+				}
+				
+				if (raca.isEmpty()) {
+					exibirTexto("ERRO: O campo Raça é obrigatório.");
+					return;
+				} 
+				Animal doguinho =repositorio.buscarPorNome(nome);
+				
+				
+				
+				
+			}
+			
+		});
+
+		// Remover
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nome = campNome.getText().trim();
+				
+				if (nome.isEmpty()) {
+					exibirTexto("ERRO: O campo Nome é obrigatório.");
+					return;
+				} 
+				
+				exibirTexto(repositorio.buscarPorNome(nome).exibirDados() + " \n--Removido com sucesso!");
+			if (repositorio.remover(nome) != false) {
+				return;
+			}
+
+		}}); 
 	}
 
-	// â”€â”€ MÃ©todos auxiliares
-	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+	// Métodos auxiliares
+	//
 
-	/** Exibe texto na Ã¡rea de resultado, substituindo o conteÃºdo anterior. */
+	/** Exibe texto na área de resultado, substituindo o conteÃºdo anterior. */
 	private void exibirTexto(String texto) {
 		areaResultado.setText(texto);
 	}
@@ -177,6 +235,8 @@ public class TelaPetShop extends JFrame {
 		campRaca.setText("");
 		campIdade.setText("");
 		campGenero.setText("");
+		campDono.setText("");
+		campTel.setText("");
 		campNome.requestFocus();
 	}
 

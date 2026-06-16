@@ -21,14 +21,13 @@ public abstract class Animal {
 		totalAnimais++;
 
 	};
-	
-	
+
 	// Os getters e setters do bonetti etti
 
 	// nome
 	public void setNome(String nome) {
 		if (nome == "" || nome == null) {
-			System.out.println("Por favor, digite um nome válido.");
+			System.out.println("Por favor, digite um nome vï¿½lido.");
 		} else {
 			this.nome = nome;
 		}
@@ -41,7 +40,7 @@ public abstract class Animal {
 	// idade
 	public void setIdade(int idade) {
 		if (idade < 0) {
-			System.out.println("Por favor, digite uma idade válida.");
+			System.out.println("Por favor, digite uma idade vï¿½lida.");
 		} else {
 			this.idade = idade;
 		}
@@ -54,7 +53,7 @@ public abstract class Animal {
 	// gÃªneros dos animais
 	public void setGenero(char genero) {
 		if (genero == ' ') {
-			System.out.println("Por favor, digite F para fêmea e M para macho.");
+			System.out.println("Por favor, digite F para fï¿½mea e M para macho.");
 		} else {
 			this.genero = genero;
 		}
@@ -75,24 +74,24 @@ public abstract class Animal {
 		this.dono = dono;
 	}
 
-	// metodinhos dos animaiszinhos==========================================================================
+	// metodinhos dos
+	// animaiszinhos==========================================================================
 	public abstract void emitirSom();
-	
-	
-	
 
-	// get total animaizes==========================================================================
+	// get total
+	// animaizes==========================================================================
 	public static int gettotalAnimais() {
 		return totalAnimais;
 	}
-	
+
 // autoexplicativo 
 	public String exibirDados() {
 		if (dono != null) {
 			dono.exibirInfo();
 		}
 
-		System.out.println("Dados do Animal:==========\n Nome: " + nome + "\nGênero: " + genero + "\nIdade: " + idade + " anos");
-		return "Dados do Animal:==========\n Nome: " + nome + "\nGênero: " + genero + "\nIdade: " + idade + " anos";
+		System.out.println(
+				"Dados do Animal:==========\n Nome: " + nome + "\nGï¿½nero: " + genero + "\nIdade: " + idade + " anos");
+		return "Dados do Animal:==========\n Nome: " + nome + "\nGï¿½nero: " + genero + "\nIdade: " + idade + " anos";
 	}
 }
