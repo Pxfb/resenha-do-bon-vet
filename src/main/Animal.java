@@ -73,7 +73,9 @@ public abstract class Animal {
 	public void setDono(Cliente dono) {
 		this.dono = dono;
 	}
-
+	public Cliente getDono() {
+		return this.dono;
+	}
 	// metodinhos dos
 	// animaiszinhos==========================================================================
 	public abstract void emitirSom();
