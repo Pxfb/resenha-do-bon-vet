@@ -20,7 +20,7 @@ public class PetShopRepositorio {
 	public Animal buscarPorNome(String nome) {
 		int tamanho = animais.size();
 		if (animais.size() == 0) {
-			System.out.println("NÃ£o existem animais.");
+			System.out.println("Não existem animais.");
 			return null;
 		}
 		for (int n = 0; n <= tamanho-1; n++) {
@@ -31,7 +31,7 @@ public class PetShopRepositorio {
 			}
 
 		}
-		System.out.println("Animal nÃ£o encontrado.");
+		System.out.println("Animal não encontrado.");
 		return null;
 	}
 
@@ -56,6 +56,8 @@ public class PetShopRepositorio {
 		
 			return false;
 	}
+	
+	
 
 	/** Retorna a lista completa de animais cadastrados (cÃ³pia defensiva). */
 	public ArrayList<Animal> listarTodos() {

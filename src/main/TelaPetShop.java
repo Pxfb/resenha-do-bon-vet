@@ -28,6 +28,7 @@ public class TelaPetShop extends JFrame {
 	private final JButton btnBuscar = new JButton("Buscar");
 	private final JButton btnAtualizar = new JButton("Atualizar");
 	private final JButton btnRemover = new JButton("Remover");
+	private final JButton btnListar = new JButton("Listar Todos");
 
 	// â”€â”€ Construtor
 	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -92,6 +93,7 @@ public class TelaPetShop extends JFrame {
 		painel.add(btnBuscar);
 		painel.add(btnAtualizar);
 		painel.add(btnRemover);
+		painel.add(btnListar);
 		return painel;
 	}
 
@@ -194,10 +196,16 @@ public class TelaPetShop extends JFrame {
 					exibirTexto("ERRO: O campo Raça é obrigatório.");
 					return;
 				} 
-				Animal doguinho =repositorio.buscarPorNome(nome);
 				
+				Cachorro dog = (Cachorro) repositorio.buscarPorNome(nome);
 				
-				
+				Cliente newDono = dog.getDono();
+				newDono.setNome(dono);
+				dog.setDono(newDono);
+				dog.setRaca(raca);
+				dog.setIdade(idade);
+				exibirTexto("Novos dados: \n" + dog.exibirDados());
+			limparCampos(); 
 				
 			}
 			
@@ -219,8 +227,21 @@ public class TelaPetShop extends JFrame {
 			}
 
 		}}); 
-	}
-
+	
+	
+	
+	// Listar todos
+	
+	btnListar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			String lista = "";
+			for (int n = 0; n <= repositorio.listarTodos().size()-1; n++) {
+				lista = lista + "\n" + repositorio.listarTodos().get(n).exibirDados();
+			}
+			exibirTexto(lista); 
+		}
+	});}
+	
 	// Métodos auxiliares
 	//
 
@@ -239,5 +260,9 @@ public class TelaPetShop extends JFrame {
 		campTel.setText("");
 		campNome.requestFocus();
 	}
+	
+	// personalização
+	
+	
 
 }
