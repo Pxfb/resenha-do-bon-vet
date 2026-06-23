@@ -33,16 +33,31 @@ public class TelaPetShop extends JFrame {
 	// â”€â”€ Construtor
 	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	public TelaPetShop() {
-		super("Pet Shop 0,” Gerenciador de Animais");
+		super("Gerenciador de animais - Clínica veterinária");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// O JFrame usa BorderLayout por padrÃ£o
 		setLayout(new BorderLayout(8, 8));
-
+		getContentPane().setBackground(new Color(128 , 180, 225));
+		
 		add(criarPainelFormulario(), BorderLayout.NORTH);
 		add(criarAreaResultado(), BorderLayout.CENTER);
 		add(criarPainelBotoes(), BorderLayout.SOUTH);
+		
+		btnCadastrar.setBackground(new Color(189, 217, 241));
+		btnBuscar.setBackground(new Color(189, 217, 241));
+		btnAtualizar.setBackground(new Color(189, 217, 241));
+		btnRemover.setBackground(new Color(189, 217, 241));
+		btnListar.setBackground(new Color(189, 217, 241));
 
+		btnCadastrar.setForeground(Color.BLACK);
+		btnBuscar.setForeground(Color.BLACK);
+		btnAtualizar.setForeground(Color.BLACK);
+		btnRemover.setForeground(Color.BLACK);
+		btnListar.setForeground(Color.BLACK);
+
+		
+		
 		configurarListeners();
 
 		setSize(900, 600);
@@ -57,6 +72,8 @@ public class TelaPetShop extends JFrame {
 	private JPanel criarPainelFormulario() {
 		JPanel painel = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 6));
 		painel.setBorder(BorderFactory.createTitledBorder("Dados do Pet e Tutor"));
+		
+		painel.setBackground(new Color(128, 180, 225));
 
 		painel.add(new JLabel("Nome:"));
 		painel.add(campNome);
@@ -82,6 +99,10 @@ public class TelaPetShop extends JFrame {
 		areaResultado.setBorder(BorderFactory.createEmptyBorder(6, 8, 6, 8));
 		exibirTexto("Bem-vindo ao sistema do Pet Shop!\n"
 				+ "Preencha os campos acima e use os botões para gerenciar os pets.\n");
+		
+		areaResultado.setBackground(new Color(128, 180, 225));
+		areaResultado.setForeground(Color.WHITE);
+		areaResultado.setCaretColor(Color.WHITE);
 		return new JScrollPane(areaResultado);
 	}
 
@@ -89,6 +110,7 @@ public class TelaPetShop extends JFrame {
 	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private JPanel criarPainelBotoes() {
 		JPanel painel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 8));
+		painel.setBackground(new Color(133, 163, 255));
 		painel.add(btnCadastrar);
 		painel.add(btnBuscar);
 		painel.add(btnAtualizar);
@@ -262,7 +284,6 @@ public class TelaPetShop extends JFrame {
 	}
 	
 	// personalização
-	
 	
 
 }
