@@ -112,7 +112,7 @@ public class TelaPetShop extends JFrame {
 	// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	private JPanel criarPainelBotoes() {
 		JPanel painel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 8));
-		painel.setBackground(new Color(133, 163, 255));
+		painel.setBackground(new Color(2, 37, 80));
 		painel.add(btnCadastrar);
 		painel.add(btnBuscar);
 		painel.add(btnAtualizar);
