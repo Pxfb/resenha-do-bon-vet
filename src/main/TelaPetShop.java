@@ -129,10 +129,16 @@ public class TelaPetShop extends JFrame {
 				String nome = campNome.getText().trim();
 				String raca = campRaca.getText().trim();
 				int idade;
-				char genero = campGenero.getText().charAt(0);
+				String generoTexto = campGenero.getText().trim();
+				char genero ;
+				
 				String dononome = campDono.getText().trim();
 				String telefone = campTel.getText().trim();
-
+				
+				if(generoTexto.isEmpty()) {
+					exibirTexto("ERRO: O campo Genero é obrigatório.");
+					return;
+				}else {genero = generoTexto.charAt(0);}
 				try {
 					idade = Integer.parseInt(campIdade.getText());
 
@@ -151,10 +157,12 @@ public class TelaPetShop extends JFrame {
 
 				if (dononome.isEmpty()) {
 					exibirTexto("Por favor preencha todos os campos");
+					return;
 				}
 
 				if (telefone.isEmpty()) {
 					exibirTexto("Por favor preencha todos os campos");
+					return;
 				}
 
 				Cliente dono = new Cliente(dononome, telefone);
