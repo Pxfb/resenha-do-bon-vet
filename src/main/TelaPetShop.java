@@ -35,6 +35,8 @@ public class TelaPetShop extends JFrame {
 	public TelaPetShop() {
 		super("Gerenciador de animais - Clínica veterinária");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ImageIcon icon = new ImageIcon(getClass().getResource("/main/iconPet.png"));
+		setIconImage(icon.getImage());
 
 		// O JFrame usa BorderLayout por padrÃ£o
 		setLayout(new BorderLayout(8, 8));
@@ -135,10 +137,16 @@ public class TelaPetShop extends JFrame {
 				String dononome = campDono.getText().trim();
 				String telefone = campTel.getText().trim();
 				
-				if(generoTexto.isEmpty()) {
-					exibirTexto("ERRO: O campo Genero é obrigatório.");
+				
+				if (nome.isEmpty()) {
+					exibirTexto("ERRO: O campo Nome é obrigatório.");
 					return;
-				}else {genero = generoTexto.charAt(0);}
+				}
+				
+					if (raca.isEmpty()) {
+					raca = "Indefinida";
+				}
+					
 				try {
 					idade = Integer.parseInt(campIdade.getText());
 
@@ -146,15 +154,14 @@ public class TelaPetShop extends JFrame {
 					exibirTexto("Por favor, digite caracteres válidos.");
 					return;
 				}
-
-				if (nome.isEmpty()) {
-					exibirTexto("ERRO: O campo Nome é obrigatório.");
+				
+				
+				if(generoTexto.isEmpty()) {
+					exibirTexto("ERRO: O campo Genero é obrigatório.");
 					return;
-				}
-				if (raca.isEmpty()) {
-					raca = "Indefinida";
-				}
-
+				}else {genero = generoTexto.charAt(0);}
+				
+				
 				if (dononome.isEmpty()) {
 					exibirTexto("Por favor preencha todos os campos");
 					return;
